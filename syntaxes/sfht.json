@@ -1,0 +1,128 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "SFHT",
+  "patterns": [
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#directives"
+    },
+    {
+      "include": "#interpolation"
+    },
+    {
+      "include": "#html"
+    }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.block.sfht",
+          "begin": "\\{\\{--",
+          "end": "--\\}\\}",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.comment.sfht"
+            }
+          }
+        }
+      ]
+    },
+    "directives": {
+      "patterns": [
+        {
+          "name": "keyword.control.sfht",
+          "match": "@(if|elseif|else|endif|foreach|endforeach|for|endfor|while|endwhile|extends|block|endblock|include|includeWhen|component|endcomponent|use|empty|endempty)\\b"
+        },
+        {
+          "name": "keyword.other.sfht",
+          "match": "@(loop|break|continue)\\b"
+        }
+      ]
+    },
+    "interpolation": {
+      "patterns": [
+        {
+          "name": "meta.interpolation.sfht",
+          "begin": "\\{\\{",
+          "end": "\\}\\}",
+          "captures": {
+            "0": {
+              "name": "punctuation.definition.interpolation.sfht"
+            }
+          },
+          "patterns": [
+            {
+              "name": "keyword.operator.comparison.sfht",
+              "match": "(==|!=|<=|>=|<|>|===|!==)"
+            },
+            {
+              "name": "keyword.operator.logical.sfht",
+              "match": "(&&|\\|\\||!)"
+            },
+            {
+              "name": "keyword.operator.arithmetic.sfht",
+              "match": "(\\+|-|\\*|/|%|\\*\\*)"
+            },
+            {
+              "name": "keyword.operator.pipe.sfht",
+              "match": "\\|"
+            },
+            {
+              "name": "variable.other.sfht",
+              "match": "\\$(\\w+)"
+            },
+            {
+              "name": "variable.language.sfht",
+              "match": "\\$loop"
+            },
+            {
+              "name": "support.function.sfht",
+              "match": "(upper|lower|capitalize|truncate|escape|json|format|trim|reverse|abs|round)"
+            },
+            {
+              "name": "string.quoted.double.sfht",
+              "begin": "\"",
+              "end": "\"",
+              "patterns": [
+                {
+                  "name": "constant.character.escape.sfht",
+                  "match": "\\\\."
+                }
+              ]
+            },
+            {
+              "name": "string.quoted.single.sfht",
+              "begin": "'",
+              "end": "'",
+              "patterns": [
+                {
+                  "name": "constant.character.escape.sfht",
+                  "match": "\\\\."
+                }
+              ]
+            },
+            {
+              "name": "constant.numeric.sfht",
+              "match": "\\b(0|[1-9]\\d*)(\\.\\d+)?([eE][+-]?\\d+)?\\b"
+            },
+            {
+              "name": "constant.language.sfht",
+              "match": "\\b(true|false|null|true|false)\\b"
+            }
+          ]
+        }
+      ]
+    },
+    "html": {
+      "patterns": [
+        {
+          "include": "text.html.basic"
+        }
+      ]
+    }
+  },
+  "scopeName": "text.html.sfht"
+}

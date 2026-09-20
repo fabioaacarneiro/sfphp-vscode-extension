@@ -1,0 +1,236 @@
+{
+  "If Statement": {
+    "prefix": "@if",
+    "body": [
+      "@if($${1:condition})",
+      "\t$0",
+      "@endif"
+    ],
+    "description": "SFHT @if directive"
+  },
+  "If Else Statement": {
+    "prefix": "@ifelse",
+    "body": [
+      "@if($${1:condition})",
+      "\t$0",
+      "@else",
+      "\t$2",
+      "@endif"
+    ],
+    "description": "SFHT @if @else directive"
+  },
+  "If Elseif Else Statement": {
+    "prefix": "@ifelseif",
+    "body": [
+      "@if($${1:condition})",
+      "\t$0",
+      "@elseif($${2:condition})",
+      "\t$3",
+      "@else",
+      "\t$4",
+      "@endif"
+    ],
+    "description": "SFHT @if @elseif @else directive"
+  },
+  "Foreach Loop": {
+    "prefix": "@foreach",
+    "body": [
+      "@foreach($${1:items} as $${2:item})",
+      "\t{{ $$2 }}",
+      "@endforeach"
+    ],
+    "description": "SFHT @foreach directive"
+  },
+  "Foreach with Key": {
+    "prefix": "@foreachkey",
+    "body": [
+      "@foreach($${1:items} as $${2:key} => $${3:item})",
+      "\t{{ $$2 }}: {{ $$3 }}",
+      "@endforeach"
+    ],
+    "description": "SFHT @foreach with key directive"
+  },
+  "For Loop": {
+    "prefix": "@for",
+    "body": [
+      "@for($i = 0; $i < ${1:count}; $i++)",
+      "\t{{ $i }}",
+      "@endfor"
+    ],
+    "description": "SFHT @for directive"
+  },
+  "While Loop": {
+    "prefix": "@while",
+    "body": [
+      "@while($${1:condition})",
+      "\t$0",
+      "@endwhile"
+    ],
+    "description": "SFHT @while directive"
+  },
+  "Extends": {
+    "prefix": "@extends",
+    "body": [
+      "@extends('${1:layouts.base}')"
+    ],
+    "description": "SFHT @extends directive for template inheritance"
+  },
+  "Block": {
+    "prefix": "@block",
+    "body": [
+      "@block('${1:content}')",
+      "\t$0",
+      "@endblock"
+    ],
+    "description": "SFHT @block directive for template sections"
+  },
+  "Include": {
+    "prefix": "@include",
+    "body": [
+      "@include('${1:partials.header}')"
+    ],
+    "description": "SFHT @include directive"
+  },
+  "Include When": {
+    "prefix": "@includeWhen",
+    "body": [
+      "@includeWhen($${1:condition}, '${2:partials.modal}')"
+    ],
+    "description": "SFHT @includeWhen conditional include"
+  },
+  "Component": {
+    "prefix": "@component",
+    "body": [
+      "@component('${1:components.button}', ['${2:label}' => '${3:Click}'])",
+      "@endcomponent"
+    ],
+    "description": "SFHT @component directive"
+  },
+  "Use": {
+    "prefix": "@use",
+    "body": [
+      "@use(${1:RequestsFunctions})"
+    ],
+    "description": "SFHT @use directive to activate features"
+  },
+  "Empty": {
+    "prefix": "@empty",
+    "body": [
+      "@if(empty($${1:items}))",
+      "\t<p>No items found</p>",
+      "@else",
+      "\t@foreach($${1:items} as $${2:item})",
+      "\t\t$0",
+      "\t@endforeach",
+      "@endif"
+    ],
+    "description": "SFHT @empty check"
+  },
+  "Interpolation": {
+    "prefix": "{{",
+    "body": [
+      "{{ $${1:variable} }}"
+    ],
+    "description": "SFHT variable interpolation"
+  },
+  "Variable with Filter": {
+    "prefix": "{{filter",
+    "body": [
+      "{{ $${1:variable} | ${2:upper} }}"
+    ],
+    "description": "SFHT variable with filter"
+  },
+  "Comment": {
+    "prefix": "{{--",
+    "body": [
+      "{{-- ${1:comment} --}}"
+    ],
+    "description": "SFHT comment"
+  },
+  "Loop Variable": {
+    "prefix": "$loop",
+    "body": [
+      "$loop->${1:first|last|even|odd|iteration|index|count}"
+    ],
+    "description": "SFHT special $loop variable"
+  },
+  "Reactive Component": {
+    "prefix": "@data",
+    "body": [
+      "<div @data=\"{ ${1:count}: 0, ${2:name}: '' }\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "SFJS @data reactive component"
+  },
+  "Reactive Text Binding": {
+    "prefix": "@text",
+    "body": [
+      "<p @text=\"${1:message}\"></p>"
+    ],
+    "description": "SFJS @text bind text content"
+  },
+  "Reactive HTML Binding": {
+    "prefix": "@html",
+    "body": [
+      "<div @html=\"${1:htmlContent}\"></div>"
+    ],
+    "description": "SFJS @html bind HTML content"
+  },
+  "Reactive Show": {
+    "prefix": "@show",
+    "body": [
+      "<div @show=\"${1:visible}\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "SFJS @show toggle visibility"
+  },
+  "Reactive If": {
+    "prefix": "@if-reactive",
+    "body": [
+      "<div @if=\"${1:condition}\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "SFJS @if conditional rendering"
+  },
+  "Reactive Model": {
+    "prefix": "@model",
+    "body": [
+      "<input type=\"${1:text}\" @model=\"${2:fieldName}\" placeholder=\"${3:}\">"
+    ],
+    "description": "SFJS @model two-way binding"
+  },
+  "Reactive Init": {
+    "prefix": "@init",
+    "body": [
+      "<div @data=\"{}\" @init=\"${1:initFunction}()\">",
+      "\t$0",
+      "</div>"
+    ],
+    "description": "SFJS @init initialize component"
+  },
+  "Complete Reactive Form": {
+    "prefix": "reactiveform",
+    "body": [
+      "<div @data=\"{ ${1:fieldName}}: '' }\">",
+      "\t<form @on:submit=\"submit()\">",
+      "\t\t<input @model=\"${1:fieldName}\" placeholder=\"${2:}\">",
+      "\t\t<button type=\"submit\" class=\"btn btn-primary\">Submit</button>",
+      "\t</form>",
+      "\t<p @text=\"'Value: ' + ${1:fieldName}\"></p>",
+      "</div>"
+    ],
+    "description": "Complete SFJS reactive form example"
+  },
+  "Counter Component": {
+    "prefix": "counter",
+    "body": [
+      "<div @data=\"{ count: 0 }\">",
+      "\t<button @on:click=\"count++\" class=\"btn\">Count: <span @text=\"count\"></span></button>",
+      "</div>"
+    ],
+    "description": "Simple counter component with SFJS"
+  }
+}
