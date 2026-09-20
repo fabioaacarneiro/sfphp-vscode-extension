@@ -1,0 +1,63 @@
+{
+  "name": "sfphp-sfht",
+  "displayName": "SFHT - SFPHP Template Syntax",
+  "description": "Complete support for SFHT templates: syntax highlighting, IntelliSense, validation, hover documentation, and snippets",
+  "version": "2.0.0",
+  "publisher": "fabioaacarneiro",
+  "author": {
+    "name": "Fabio Carneiro"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fabioaacarneiro/sfphp-vscode-extension"
+  },
+  "homepage": "https://github.com/fabioaacarneiro/sfphp-vscode-extension#readme",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets",
+    "Themes"
+  ],
+  "keywords": [
+    "sfphp",
+    "sfht",
+    "template",
+    "syntax",
+    "highlighting"
+  ],
+  "contributes": {
+    "languages": [
+      {
+        "id": "sfht",
+        "aliases": [
+          "SFHT",
+          "sfht"
+        ],
+        "extensions": [
+          ".sfht"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sfht",
+        "scopeName": "text.html.sfht",
+        "path": "./syntaxes/sfht.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "sfht",
+        "path": "./snippets/sfht.json"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "echo 'Ready to publish'",
+    "test": "echo 'No tests yet'"
+  }
+}

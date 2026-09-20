@@ -1,0 +1,40 @@
+{
+  "comments": {
+    "lineComment": "{{-- ",
+    "blockComment": ["{{--", "--}}"]
+  },
+  "brackets": [
+    ["{{", "}}"],
+    ["@if", "@endif"],
+    ["@foreach", "@endforeach"],
+    ["@for", "@endfor"],
+    ["@while", "@endwhile"],
+    ["@block", "@endblock"],
+    ["<", ">"]
+  ],
+  "autoClosingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["'", "'"],
+    ["{{", "}}"],
+    ["<", ">"]
+  ],
+  "surroundingPairs": [
+    ["{", "}"],
+    ["[", "]"],
+    ["(", ")"],
+    ["\"", "\""],
+    ["'", "'"],
+    ["{{", "}}"],
+    ["<", ">"]
+  ],
+  "folding": {
+    "markers": {
+      "start": "^\\s*(@if|@foreach|@for|@while|@block)\\b",
+      "end": "^\\s*(@endif|@endforeach|@endfor|@endwhile|@endblock)\\b"
+    }
+  },
+  "wordPattern": "(-?\\d*\\.\\d\\w*)|([^\\`\\~\\!\\@\\#\\%\\^\\&\\*\\(\\)\\-\\=\\+\\[\\{\\]\\}\\\\\\|\\;\\:\\'\\\"\\,\\.\\<\\>\\/\\?\\s]+)"
+}

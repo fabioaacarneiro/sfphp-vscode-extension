@@ -1,0 +1,7 @@
+.git
+.gitignore
+.DS_Store
+node_modules
+*.ts
+tsconfig.json
+vsc-extension-quickstart.md
