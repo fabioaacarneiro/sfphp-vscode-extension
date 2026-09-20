@@ -1,0 +1,4 @@
+name = "SFHT"
+grammar = "sfht"
+file_types = ["sfht"]
+line_comments = "{{--"

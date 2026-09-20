@@ -1,0 +1,9 @@
+[package]
+name = "sfht"
+description = "SFHT (SFPHP Template Engine) syntax highlighting for Zed"
+version = "2.0.1"
+edition = "0.1.0"
+authors = ["Fabio Carneiro"]
+repository = "https://github.com/fabioaacarneiro/sfphp-vscode-extension"
+
+[dependencies]
